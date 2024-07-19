@@ -1,5 +1,5 @@
 FROM node:14
-WORKDIR /usr/src/app
+WORKDIR /Users/anandmunjuluri/Desktop/7TH-SEM/DEVOPS/blue-green-demo
 COPY package*.json ./
 RUN npm install
 COPY . .
