@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bgapp-{{COLOR}}
+  namespace: bluegreen
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bgapp
+      color: {{COLOR}}
+  template:
+    metadata:
+      labels:
+        app: bgapp
+        color: {{COLOR}}
+    spec:
+      containers:
+      - name: bgapp
+        image: anandmunjuluri/bgapp:{{VERSION}}
+        ports:
+        - containerPort: 3000
+        env:
+        - name: VERSION
+          value: "{{VERSION}}"
+        - name: COLOR
+          value: "{{COLOR}}"

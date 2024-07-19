@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bgapp
+  namespace: bluegreen
+spec:
+  selector:
+    app: bgapp
+    color: blue
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer
